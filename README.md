@@ -1,11 +1,28 @@
-# **touch-up-the-hair**
+# **Touch-Up-The-Hair**
+
+## Image Processing Workflow
+
+This section describes the workflow for processing images using our application.
+
+```mermaid
+graph TD;
+    style Upload_Image fill:#64B5F6,stroke:#333,stroke-width:2px,stroke-dasharray: 5, 5,font-size:14px,font-weight:normal,font-family:Arial;
+    style Generate_Mask fill:#81C784,stroke:#333,stroke-width:2px,stroke-dasharray: 5, 5,font-size:14px,font-weight:normal,font-family:Arial;
+    style Inpainting fill:#FFD54F,stroke:#333,stroke-width:2px,stroke-dasharray: 5, 5,font-size:14px,font-weight:normal,font-family:Arial;
+    style Touch_up_Image fill:#FF8A65,stroke:#333,stroke-width:2px,stroke-dasharray: 5, 5,font-size:14px,font-weight:normal,font-family:Arial;
+    style Download_Image fill:#A1887F,stroke:#333,stroke-width:2px,stroke-dasharray: 5, 5,font-size:14px,font-weight:normal,font-family:Arial;
+
+    Upload_Image["Upload Image"] --> Generate_Mask["Generate Mask"];
+    Generate_Mask --> Inpainting["Inpainting using stable diffusion with ControlNet"];
+    Inpainting --> Touch_up_Image["Touch up Image"];
+    Touch_up_Image --> Download_Image["Download Image"];
+```
 
 ## Objective
 The objective of this project is to touch up hair in the image to match the minority hair color to the previously applied predominant color, resulting in a beautiful, uniform single-color hair appearance.
 
 ## Project Overview
 This project employs stable diffusion inpainting with ControlNet to achieve the desired hair color touch-up. The algorithm utilizes a minority hair color mask to guide the inpainting process.
-
 
 ## Usage
 1. Clone this repository to your local machine.
