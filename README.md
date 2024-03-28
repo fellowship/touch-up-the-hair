@@ -39,5 +39,5 @@ This project employs stable diffusion inpainting with ControlNet to achieve the 
 ## Models
 - `selfie_multiclass_256x256.tflite`: Mediapipe model for segmenting hair in images.
 
-  ##Note
+## Note
 If you intend to use images other than the provided test images, please ensure that your `IMG_PATH` variable is up-to-date. We recommend utilizing the pre-built `input_dir` directory, where you can conveniently upload your images after creating the directory.
