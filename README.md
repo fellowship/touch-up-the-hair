@@ -25,17 +25,19 @@ The objective of this project is to touch up hair in the image to match the mino
 This project employs stable diffusion inpainting with ControlNet to achieve the desired hair color touch-up. The algorithm utilizes a minority hair color mask to guide the inpainting process.
 
 ## Usage
-1. Clone this repository to your local machine.
-2. Open and run the notebook `touch_up_the_hair.ipynb` in Google Colab or any compatible environment.
-3. Upload your input images to the `input_dir` folder.
-4. Follow the instructions provided in the notebook to process the images.
-5. Retrieve the processed images from the `output_dir` folder.
+1. Clone this repository to Google Colab.
+2. Open and run the notebook `touch_up_the_hair.ipynb` in Google Colab.
+ 
 
 ## Repository Structure
 - `touch_up_the_hair.ipynb`: Contains the Python code for the hair color touch-up process.
 - `input_dir/`: Directory to upload input images.
 - `output_dir/`: Directory where the processed images will be saved.
 - `models/`: Directory to store required models.
+- `Images/`: Directory containing test images
 
 ## Models
 - `selfie_multiclass_256x256.tflite`: Mediapipe model for segmenting hair in images.
+
+  ##Note
+If you intend to use images other than the provided test images, please ensure that your `IMG_PATH` variable is up-to-date. We recommend utilizing the pre-built `input_dir` directory, where you can conveniently upload your images after creating the directory.
