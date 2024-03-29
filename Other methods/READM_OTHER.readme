@@ -1,0 +1,17 @@
+Method 1:
+We have trained two models based on Realistic Vision V5.1 (https://civitai.com/api/download/models/130072?type=Model&format=SafeTensor&size=pruned&fp=fp16) and CyberRealistic Classic V2.1 (https://civitai.com/api/download/models/270057?type=Model&format=SafeTensor&size=pruned&fp=fp16). 
+The models can generate single-colored hair without specifying any color and can be downloaded from https://drive.google.com/drive/folders/1-9JXyW6ieIlixh5wX8ZflRKbmfiPLKoL?usp=sharing.
+
+The trigger words of 'hairoot_reali.safetensors' are 'single color, wig like, monochromatic dyed hair on a person's head, day 000.'
+
+The trigger words of 'hairoot_cyber.safetensors' are 'single color, monochromatic dyed hair on a person's head, wig day 000.'
+
+In the Automatic1111 WebUI, besides canny controlnet, it provides three inpaint preprocessors for inpaint controlnet. The 'inpaint_only+lama' preprocessor can be a promising tool matching the color of the masked area and the rest of the hair. 
+However, it is challenging to simplify the lama_processor code to plug into the current pipeline, so this method is not continued during this cohort.
+
+Method 2:
+Instead of using a denoise strength of '1' for inpainting the masked area, we can preprocess the root area to the correct color. 
+In other words, we need to overlay the mask and original image into a new image, where the masked area uses a color that matches well with the rest of the hair rather than regular black.
+
+Then, we use a dilated mask (factor 2) to inpaint with current pipeline components using a denoise strength between 0.4 and 0.6. 
+However, to obtain the best universal denoise strength, we need a more reliable minority hair mask to experiment with, so this method is not continued during this cohort.
